@@ -17,8 +17,8 @@
 
         body {
             background: linear-gradient(-45deg, #ffb6c1, #ffc0cb, #ffe4e1, #fff0f5);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            background-size: 200% 200%;
+            animation: gradientBG 20s ease infinite;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -57,15 +57,13 @@
         #welcome-screen {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100vh;
-            background: rgba(255, 240, 245, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 240, 245, 0.95);
             z-index: 50; 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
         .welcome-title {
@@ -73,7 +71,7 @@
             font-size: 4rem;
             color: #ff477e;
             margin-bottom: 30px;
-            text-shadow: 2px 2px 5px rgba(255, 71, 126, 0.2);
+            text-shadow: 1px 1px 3px rgba(255, 71, 126, 0.2);
             animation: fadeInDown 1.5s ease;
         }
 
@@ -91,17 +89,10 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             border-radius: 50px;
-            box-shadow: 0 10px 20px rgba(255, 71, 126, 0.15);
+            box-shadow: 0 5px 15px rgba(255, 71, 126, 0.1);
             cursor: pointer;
             transition: all 0.3s ease;
             animation: floatBtn 3s ease-in-out infinite;
-        }
-
-        .open-btn:hover {
-            background: #ff477e;
-            color: #ffffff;
-            transform: scale(1.05);
-            box-shadow: 0 15px 25px rgba(255, 71, 126, 0.3);
         }
 
         .open-btn:active {
@@ -110,14 +101,14 @@
 
         @keyframes floatBtn {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
             100% { transform: translateY(0); }
         }
 
         .swiper-container-wrapper {
             display: none; 
             opacity: 0;
-            transition: opacity 1s ease;
+            transition: opacity 0.8s ease;
         }
 
         .swiper {
@@ -131,11 +122,11 @@
             align-items: center;
             justify-content: center;
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.1);
             padding: 25px;
             text-align: center;
             flex-direction: column;
@@ -144,7 +135,6 @@
         .emoji-container {
             font-size: 4rem;
             margin-bottom: 10px;
-            filter: drop-shadow(0px 8px 8px rgba(0,0,0,0.1));
         }
 
         h1 {
@@ -153,7 +143,6 @@
             color: #ff477e;
             line-height: 1.2;
             margin-bottom: 8px;
-            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
         }
 
         p {
@@ -163,23 +152,17 @@
             line-height: 1.5;
         }
 
-        .swipe-hint {
-            position: absolute;
-            bottom: -35px;
-            width: 100%;
-            text-align: center;
-            font-size: 0.75rem;
+        .swipe-next {
+            margin-top: 15px;
+            font-size: 0.8rem;
             color: #ff477e;
             font-weight: 700;
-            letter-spacing: 1.5px;
-            animation: pulse 1.5s infinite;
-            z-index: 10;
+            animation: bounceX 1.5s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.7; }
-            50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.7; }
+        @keyframes bounceX {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
         }
     </style>
 </head>
@@ -197,7 +180,6 @@
     </div>
 
     <div class="swiper-container-wrapper" id="main-content">
-        <div class="swipe-hint">GESER KARTUNYA 👉</div>
         <div class="swiper">
             <div class="swiper-wrapper">
                 
@@ -205,24 +187,28 @@
                     <div class="anim-target emoji-container">🥺</div>
                     <h1 class="anim-target">Hai, pita</h1>
                     <p class="anim-target">Cuma mau nitip pesan kecil. Baca pelan-pelan ya.</p>
+                    <div class="anim-target swipe-next">Geser 👉</div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="anim-target emoji-container">🌧️</div>
                     <h1 class="anim-target">Aku Salah</h1>
                     <p class="anim-target">Maaf bgtt yaa soal tadi. Aku ga sadar kalo aku udah maksa pita buat main itu.</p>
+                    <div class="anim-target swipe-next">Geser 👉</div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="anim-target emoji-container">🩹</div>
                     <h1 class="anim-target">I'm Sorry</h1>
                     <p class="anim-target">Harusnya aku paham, waktu pita diem bukannya stop malah lanjutin ego..</p>
+                    <div class="anim-target swipe-next">Geser 👉</div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="anim-target emoji-container">🍦</div>
                     <h1 class="anim-target">Tebusan?</h1>
                     <p class="anim-target">Masih badmood ya?? besok mau beli eskrim??</p>
+                    <div class="anim-target swipe-next">Geser 👉</div>
                 </div>
 
                 <div class="swiper-slide">
@@ -241,7 +227,7 @@
     <script>
         const heartsContainer = document.getElementById('hearts-container');
         const hearts = ['🤍', '🌸', '✨', '💕'];
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 6; i++) {
             let heart = document.createElement('div');
             heart.classList.add('heart');
             heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
@@ -253,9 +239,9 @@
 
         function animateSlide(slide) {
             const targets = slide.querySelectorAll('.anim-target');
-            gsap.set(targets, { opacity: 0, y: 30, scale: 0.9 });
+            gsap.set(targets, { opacity: 0, y: 20, scale: 0.95 });
             gsap.to(targets, {
-                opacity: 1, y: 0, scale: 1, duration: 0.8, stagger: 0.2, ease: "back.out(1.7)", delay: 0.1
+                opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.15, ease: "back.out(1.5)", delay: 0.1
             });
         }
 
@@ -290,13 +276,12 @@
                                 animateSlide(this.slides[this.activeIndex]);
                             },
                             slideChangeTransitionStart: function () {
-                                document.querySelector('.swipe-hint').style.display = 'none';
                                 animateSlide(this.slides[this.activeIndex]);
                             }
                         }
                     });
                 }, 100);
-            }, 800); 
+            }, 600); 
         });
     </script>
 </body>
